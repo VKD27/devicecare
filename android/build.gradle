@@ -1,0 +1,43 @@
+group 'ai.docty.devicecare'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+       // classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "com.android.tools.build:gradle:4.2.2"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()  // Warning: this repository is going to shut down soon
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+    //buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        //applicationId "ai.docty.devicecare"
+        minSdkVersion 21
+        targetSdkVersion 31
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/contec_sp_ble_sdk_v1.3.jar')
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+}
